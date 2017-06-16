@@ -1,0 +1,30 @@
+﻿@model Domain.Entities.Dress
+
+<div class="well">
+    <div class="img-thumbnail"><img src="@Model.Image" width="189" height="255" />  </div>
+    <div class="row">
+
+        <div class="col-xs-10">
+            <h3>
+                <strong>@Model.Name</strong>
+            </h3>
+
+            @*<p>@dress.Image</p>*@
+            <h4>
+                @if (Model.SpecOffer != String.Empty)
+                {
+                    @Model.SpecOffer
+                }
+            </h4>
+        </div>
+        <div class="col-xs-2">
+            <h3>
+                <strong class="pull-right label label-primary">
+                    @Model.Price.ToString("# UAH")
+                </strong>
+            </h3>
+
+        </div>
+    </div>
+    <span class="lead">@Model.Description</span>
+</div>
