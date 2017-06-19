@@ -10,5 +10,6 @@ namespace Domain.Abstract
     public interface IDressRepository
     {
         IEnumerable<Dress> Dresses { get; }
+        void SaveDress(Dress dress);
     }
 }

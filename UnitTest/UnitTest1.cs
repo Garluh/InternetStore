@@ -87,5 +87,33 @@ namespace UnitTest
             Assert.AreEqual(paginigInfo.TotalItems, 5);
             Assert.AreEqual(paginigInfo.TotalPages, 2);
         }
+
+        [TestMethod]
+        public void Can_Save_Valid_Cheanges()
+        {
+            Mock<IDressRepository> mosk = new Mock<IDressRepository>();
+            AdminController controller = new AdminController(mosk.Object);
+
+            Dress dress = new Dress { Name = "Test" };
+            ActionResult result = controller.Edit(dress);
+
+            mosk.Verify(m => m.SaveDress(dress));
+            Assert.IsNotInstanceOfType(result, typeof(ViewResult));
+        }
+
+        [TestMethod]
+        public void Can_Save_Invalid_Cheanges()
+        {
+            Mock<IDressRepository> mosk = new Mock<IDressRepository>();
+            AdminController controller = new AdminController(mosk.Object);
+
+            Dress dress = new Dress { Name = "Test" };
+            controller.ModelState.AddModelError("error", "error");
+
+            ActionResult result = controller.Edit(dress);
+
+            mosk.Verify(m => m.SaveDress(It.IsAny<Dress>()),Times.Never);
+            Assert.IsInstanceOfType(result, typeof(ViewResult));
+        }
     }
 }
