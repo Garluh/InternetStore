@@ -5,7 +5,7 @@ Domain\Concrete\EmailOrderProcessor.cs <br>
 <br>
 <br>
 WebUI\Web.config<br>
-<!-- начало Проверка на стороне клинета --><br>
-<add key="ClientValidationEnabled" value="true" /><br>
-<add key="UnobtrusiveJavaScriptEnabled" value="true" /><br>
-<!-- конец Проверка на стороне клинета --><br>
+Проверка ошибок на стороне клиента по средствам Jquery<br>
+ClientValidationEnabled" value="true"<br>
+UnobtrusiveJavaScriptEnabled" value="true"<br>
+
